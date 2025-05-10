@@ -1,0 +1,392 @@
+/* === Importación de fuentes desde Google Fonts === */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;700&family=Montserrat:wght@400;500;700&display=swap');
+
+/* === Variables globales (PALETA DE COLORES) === */
+:root {
+  --celeste: #90e0ef; /* Celeste suave */
+  --celeste-fuerte: #00b4d8; /* Celeste fuerte */
+  --celeste-suave: #caf0f8; /* Celeste muy suave */
+  --azul-complementario: #0077b6; /* Azul complementario */
+  --blanco: #ffffff; /* Blanco */
+  --oscuro: #333333; /* Gris oscuro */
+  --fondo: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente */
+}
+
+/* === Reset y tipografía base === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; 
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Estilos generales del body */
+body {
+  font-family: 'Poppins', sans-serif; /* Tipografía de letra */
+  background-image: url('../images/fondo_imagen.png'); /* Imagen de fondo */
+  background-size: cover; /* Ajuste para cubrir toda la pantalla */
+  background-repeat: no-repeat;
+  background-position: center;
+  color: var(--oscuro); /* Color de texto oscuro */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Altura mínima de la vista */
+  font-size: 1rem;
+}
+
+/* Estilo del header */
+header {
+  background-color: var(--celeste-fuerte); /* Fondo celeste fuerte */
+  padding: 10px 0;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Sombra suave */
+}
+
+/* Título en el header */
+header h1 {
+  color: var(--blanco);
+  font-family: 'Poppins', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-align: center;
+  animation: fadeIn 1s ease-out;
+}
+
+/* Estilo de navegación */
+nav {
+  animation: navAppear 1.2s ease-out 0.8s forwards;
+  opacity: 0; /* Inicia oculto */
+  transform: translateY(-20px);
+  position: relative;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 15px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: var(--blanco);
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px 15px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 3px;
+  left: 0;
+  bottom: 0;
+  background-color: var(--azul-complementario);
+  transition: width 0.3s ease;
+  border-radius: 5px;
+}
+
+/* Efecto hover sobre los enlaces */
+nav a:hover::after,
+nav a:focus::after,
+nav a:active::after {
+  width: 100%;
+}
+
+nav a:hover {
+  color: var(--azul-complementario);
+}
+
+/* Estilos para el contenido principal */
+main {
+  background-color: var(--fondo);
+  padding: 40px 30px;
+  margin: 30px auto;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  max-width: 1000px;
+  width: 90%;
+  flex: 1;
+}
+
+h2 {
+  text-align: center;
+  color: var(--celeste-fuerte);
+  font-size: 2rem;
+  margin-bottom: 25px;
+}
+
+h3 {
+  color: var(--coral);
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+
+p, li {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 10px;
+  text-align: justify;
+}
+
+ul {
+  margin-left: 25px;
+}
+
+ul li {
+  margin-bottom: 15px;
+}
+
+img {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  display: block;
+  margin: 20px auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+img:hover {
+  transform: scale(1.05); /* Efecto zoom en imagen */
+}
+
+/* Estilos para la sección FAQ */
+.faq-container {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-bottom: 50px;
+}
+
+.faq-item {
+  background-color: var(--blanco);
+  border: 2px solid var(--celeste-fuerte);
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.07);
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+
+.faq-item:hover {
+  transform: scale(1.01); /* Efecto al pasar el ratón sobre el FAQ */
+}
+
+.faq-question {
+  background-color: var(--celeste);
+  color: var(--oscuro);
+  padding: 15px 20px;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  outline: none;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.faq-question:hover {
+  background-color: var(--celeste-fuerte);
+  color: var(--blanco);
+}
+
+.faq-question.active {
+  background-color: var(--celeste-fuerte);
+  color: var(--blanco);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 20px;
+  background-color: var(--gris-claro);
+  color: var(--oscuro);
+  transition: max-height 0.4s ease, padding 0.4s ease;
+  font-size: 1rem;
+}
+
+.faq-answer.active {
+  padding: 15px 20px;
+  max-height: 300px;
+}
+
+/* Estilos para el footer */
+footer {
+  width: 100%;
+  background-color: #00b4d8; 
+  color: white;
+  text-align: center;
+  padding: 30px 0;
+  position: relative;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+footer p {
+  margin: 0;
+  font-size: 18px;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 1px;
+}
+
+footer .container {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+footer a {
+  color: var(--blanco);
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 10px;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+footer a:hover {
+  color: var(--coral);
+}
+
+/* Animación fadeIn para el header y otros elementos */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Animación para la aparición de la navegación */
+@keyframes navAppear {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Estilos adaptativos para pantallas más pequeñas */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  nav a {
+    padding: 8px 12px;
+  }
+
+  main {
+    padding: 30px 20px;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  .testimonio-card {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 2rem;
+  }
+
+  footer {
+    padding: 20px 10px;
+    flex-direction: column;
+  }
+
+  img {
+    max-width: 100%;
+  }
+}
+
+/* Estilos específicos para el perrito animado */
+
+/* Contenedor del perrito */
+.doggy-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: transparent;
+  opacity: 0;
+  transform: translateX(0);
+  animation: fadeIn 2s forwards;
+}
+
+/* Ajuste del tamaño del perrito */
+.doggy {
+  width: 96px;
+  height: auto;
+  background: none;
+  border: none;
+  object-fit: contain;
+}
+
+/* Estilo de la burbuja de texto */
+.speech-bubble {
+  position: relative;
+  background: #fff;
+  border: 2px solid #333;
+  border-radius: 15px;
+  padding: 10px 15px;
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 10px;
+  max-width: 200px;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: scale(0.7);
+  transition: all 0.3s ease-in-out;
+  text-align: center;
+}
+
+/* Colita de la burbuja de texto */
+.speech-bubble::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-top-color: #fff;
+  border-bottom: 0;
+}
+
+/* Activación de la burbuja de texto */
+.speech-bubble.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Animación de desvanecimiento */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

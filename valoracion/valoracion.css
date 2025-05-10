@@ -1,0 +1,282 @@
+/* Importación de fuentes de Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Poppins:wght@300;700&display=swap');
+
+/* Fuente global para que sea igual en todas las páginas */
+body, input, textarea, button {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  color: #222;
+}
+
+/* ⭐ CONTENEDOR FIJO DE ESTRELLA */
+#star-container {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 999;
+}
+
+/* ⭐ Estrella */
+#star-rating-btn {
+  font-size: 2.5em;
+  background: none;
+  border: none;
+  color: gold;
+  cursor: pointer;
+  animation: brilloEstrella 1.5s infinite alternate;
+  text-shadow: 0 0 6px #ffd700, 0 0 12px #ffecb3;
+}
+
+/* 💬 BURBUJA flotando a la izquierda de la estrella */
+#star-tooltip {
+  position: absolute;
+  top: 50%;
+  right: 120%;
+  transform: translateY(-50%);
+  background: #fff;
+  color: #333;
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 0.95em;
+  white-space: nowrap;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+  animation: tooltipPop 0.3s ease-out;
+}
+
+/* 🎯 Colita estilo burbuja a la derecha */
+#star-tooltip::after {
+  content: "";
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: transparent transparent transparent #fff;
+}
+
+/* ✨ Animación burbuja */
+@keyframes tooltipPop {
+  0% { transform: scale(0.6) translateY(-50%); opacity: 0; }
+  100% { transform: scale(1) translateY(-50%); opacity: 1; }
+}
+
+/* Ocultar por defecto */
+.hidden {
+  display: none;
+}
+
+/* ✨ Animación de brillo en la estrella */
+@keyframes brilloEstrella {
+  0% { transform: scale(1) rotate(0deg); opacity: 0.8; }
+  100% { transform: scale(1.15) rotate(10deg); opacity: 1; }
+}
+
+/* 🔲 Fondo del modal de valoración */
+#rating-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* 💬 Contenido centrado del modal */
+.modal-content {
+  background-color: #fff;
+  position: relative;
+  top: 8%;
+  margin: 0 auto;
+  padding: 18px;
+  width: 90%;
+  max-width: 380px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  max-height: 85vh;
+  overflow-y: auto;
+}
+
+/* Título del modal */
+.modal-content h3 {
+  margin-bottom: 5px;
+}
+
+/* Subtexto */
+.modal-content p {
+  margin-top: 0;
+  color: #444;
+}
+
+/* ✏️ Campos de entrada */
+.modal-content input,
+.modal-content textarea {
+  padding: 8px;
+  width: 90%;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  resize: vertical;
+  font-size: 14px;
+}
+
+/* Reducimos el alto del textarea */
+.modal-content textarea {
+  min-height: 60px;
+  max-height: 120px;
+}
+
+/* Estrellas para seleccionar */
+#rating-stars span {
+  font-size: 1.8em;
+  color: #ccc;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+/* Al pasar el mouse o seleccionar estrellas */
+#rating-stars span.hovered,
+#rating-stars span.selected {
+  color: #ffc107;
+}
+
+/* Botón Enviar */
+.modal-content button {
+  margin-top: 10px;
+  background-color: #333;
+  color: white;
+  padding: 8px 18px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Mensaje de respuesta */
+#rating-message {
+  margin-top: 10px;
+}
+#rating-message.success {
+  color: green;
+}
+#rating-message.error {
+  color: red;
+}
+
+/* Botón cerrar (X) */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.4em;
+  cursor: pointer;
+  color: #999;
+}
+
+/* 📋 Contenedor general de historial */
+#rating-history-container {
+  max-width: 400px;
+  margin: 20px auto;
+  display: block;
+  padding: 15px;
+  background: #fefefe;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  font-family: sans-serif;
+}
+
+/* 🟨 Última valoración destacada */
+#latest-rating {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  text-align: justify;
+}
+
+/* 💡 Mostramos la barra de desplazamiento solo cuando hay mucho contenido */
+#history-wrapper {
+  display: none;
+  max-height: 200px;
+  overflow-y: auto;
+  margin-top: 15px;
+  padding-right: 8px;
+  transition: all 0.3s ease;
+  scroll-behavior: smooth;
+
+  /* Mostrar barra de scroll elegante */
+  scrollbar-width: thin;
+  scrollbar-color: #bbb #f0f0f0;
+}
+
+/* 🎨 Estilo para navegadores WebKit (Chrome, Edge, etc) */
+#history-wrapper::-webkit-scrollbar {
+  width: 8px;
+}
+
+#history-wrapper::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 10px;
+}
+
+#history-wrapper::-webkit-scrollbar-track {
+  background: #f5f5f5;
+}
+
+/* 📜 Estilos de cada valoración */
+#history-list li {
+  list-style: none;
+  text-align: justify;
+  border-bottom: 1px dashed #ccc;
+  padding-bottom: 8px;
+  margin-bottom: 10px;
+}
+
+/* 🧾 Mejora visual en comentarios */
+#history-list li em {
+  display: block;
+  margin: 4px 0;
+  color: #555;
+}
+
+/* ✅ Justificar nombre + estrellas */
+#latest-rating strong,
+#history-list li strong {
+  display: inline-block;
+  width: 100%;
+  text-align: justify;
+}
+
+/* 🔽 Botón desplegable */
+#toggle-history {
+  margin-top: 12px;
+  background-color: #ffc107;
+  color: #333;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95em;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* ✨ Efecto visual al estar desplegado */
+#toggle-history.active {
+  background-color: #ffdb4d;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.25);
+  transform: translateY(2px);
+}
+
+/* 🔽 Flechita animada */
+#toggle-history #arrow-icon {
+  display: inline-block;
+  margin-left: 6px;
+  transition: transform 0.3s ease;
+}
+
+/* Flechita girada cuando está activo */
+#toggle-history.active #arrow-icon {
+  transform: rotate(180deg);
+}

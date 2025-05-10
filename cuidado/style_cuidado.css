@@ -1,0 +1,393 @@
+/* === Importación de fuentes desde Google Fonts === */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Poppins:wght@300;700&display=swap');
+
+/* === Variables globales (paleta de colores) === */
+:root {
+  --celeste: #90e0ef; /* Color celeste suave */
+  --celeste-fuerte: #00b4d8; /* Color celeste fuerte */
+  --celeste-suave: #caf0f8; /* Color celeste más suave */
+  --coral: #ff6b6b; /* Color coral */
+  --blanco: #ffffff; /* Color blanco */
+  --oscuro: #333333; /* Color gris oscuro */
+  --fondo: rgba(255,255,255,0.8); /* Fondo blanco semitransparente */
+  --azul-complementario: #0077b6; /* Azul complementario */
+}
+
+/* === Reinicio de márgenes, paddings y tipografía base === */
+* {
+  margin: 0; /* Elimina márgenes */
+  padding: 0; /* Elimina relleno */
+  box-sizing: border-box; /* Establece el tamaño total del elemento incluyendo borde y relleno */
+}
+
+/* === Estilo base del cuerpo === */
+body {
+  font-family: 'Poppins', sans-serif; /* Fuente Poppins para el cuerpo */
+  background-image: url(../images/fondo_imagen.png); /* Imagen de fondo */
+  background-size: cover; /* La imagen cubre todo el fondo */
+  background-repeat: no-repeat; /* No se repite la imagen */
+  background-position: 50% 20%; /* Posicionamiento de la imagen */
+  color: var(--oscuro); /* Color del texto */
+  display: flex; /* Usamos Flexbox para la disposición */
+  flex-direction: column; /* Orden vertical de los elementos */
+  min-height: 100vh; /* Mínima altura para cubrir toda la pantalla */
+}
+
+/* === Estilo del encabezado === */
+header {
+  display: flex;
+  flex-direction: column; /* Centra los elementos verticalmente */
+  align-items: center; /* Centra los elementos horizontalmente */
+  justify-content: center; /* Centra los elementos dentro del header */
+  background-color: var(--celeste-fuerte); /* Fondo celeste fuerte */
+  padding: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  animation: fadeIn 1.5s ease-out; /* Animación de entrada suave */
+}
+
+/* === Estilo para el título dentro del header === */
+header h1 {
+  font-family: 'Poppins', sans-serif; /* Fuente para el título */
+  color: var(--blanco); /* Color blanco */
+  font-size: 3rem; /* Tamaño grande para el título */
+  margin-bottom: 10px; /* Espacio debajo del título */
+  text-align: center; /* Centra el texto */
+  animation: fadeIn 1s ease-out; /* Animación de entrada */
+}
+
+/* === Animación agregada para títulos h2 y párrafos p === */
+h2, p {
+  animation: fadeInUp 1s ease-in-out; /* Animación de entrada desde abajo */
+}
+
+/* === Definición de animación para entrada suave desde abajo === */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); /* Comienza desde abajo */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* Llega a su posición original */
+  }
+}
+
+/* === Estilo de la navegación === */
+nav {
+  animation: navAppear 1.2s ease-out 0.8s forwards; /* Animación de entrada para el menú */
+  opacity: 0;
+  transform: translateY(-20px); /* Comienza desplazado hacia arriba */
+  position: relative;
+}
+
+nav ul {
+  list-style: none; /* Elimina los puntos de la lista */
+  display: flex;
+  justify-content: center; /* Centra los elementos del menú */
+  gap: 20px; /* Espaciado entre los elementos */
+  margin-top: 15px;
+  flex-wrap: wrap; /* Permite que los elementos se ajusten a varias filas */
+}
+
+nav li {
+  position: relative;
+}
+
+/* === Estilo de los enlaces dentro de la navegación === */
+nav li a {
+  color: var(--blanco); /* Color blanco para los enlaces */
+  text-decoration: none; /* Elimina el subrayado */
+  font-weight: bold; /* Hace los enlaces en negrita */
+  padding: 10px 15px; /* Espaciado interno */
+  position: relative;
+  transition: color 0.3s ease; /* Transición suave al cambiar de color */
+}
+
+/* === Efecto en los enlaces al pasar el mouse === */
+nav li a::after {
+  content: '';
+  position: absolute;
+  width: 0%; /* Inicia sin el subrayado */
+  height: 3px;
+  left: 0;
+  bottom: 0;
+  background-color: var(--azul-complementario); /* Color del subrayado */
+  transition: width 0.3s ease; /* Transición suave al expandir el subrayado */
+  border-radius: 5px;
+}
+
+nav li a:hover::after,
+nav li a:focus::after,
+nav li a:active::after {
+  width: 100%; /* Expande el subrayado al 100% */
+}
+
+nav li a:hover {
+  color: var(--azul-complementario); /* Cambia el color del texto al pasar el mouse */
+}
+
+/* === Estilo para el contenido principal === */
+main {
+  background-color: var(--fondo); /* Fondo semitransparente blanco */
+  padding: 40px 30px;
+  margin: 20px auto;
+  border-radius: 15px; /* Bordes redondeados */
+  box-shadow: 0 0 15px rgba(0,0,0,0.1); /* Sombra suave */
+  max-width: 1000px;
+  width: 90%;
+  flex: 1;
+}
+
+/* === Estilo para los títulos en el main === */
+h2 {
+  text-align: center;
+  color: var(--celeste-fuerte); /* Título en celeste fuerte */
+  font-size: 2rem;
+  margin-bottom: 25px;
+}
+
+h3 {
+  color: var(--coral); /* Título en coral */
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+
+/* === Estilo para párrafos y listas === */
+p, li {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 10px;
+  text-align: justify; /* Justifica el texto */
+}
+
+ul {
+  margin-left: 25px; /* Sangría para las listas */
+}
+
+ul li {
+  margin-bottom: 15px;
+}
+
+/* === Estilo para las imágenes === */
+img {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  display: block;
+  margin: 20px auto; /* Centra las imágenes */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Sombra suave */
+  transition: transform 0.3s ease; /* Transición suave para el efecto de hover */
+}
+
+img:hover {
+  transform: scale(1.05); /* Aumenta ligeramente el tamaño de la imagen al pasar el mouse */
+}
+
+/* === Estilo del pie de página === */
+footer {
+  background-color: var(--celeste-fuerte); /* Fondo celeste fuerte */
+  color: var(--blanco); /* Color blanco */
+  display: flex; /* Flexbox */
+  align-items: center; /* Alineación central */
+  justify-content: center; /* Alineación central */
+  text-align: center; /* Alineación central del texto */
+  padding: 40px; /* Relleno */
+  width: 100%; /* Ancho completo */
+  font-size: 0.9rem; /* Tamaño de fuente pequeño */
+  margin-top: 40px; /* Espaciado superior */
+  position: relative; /* Posición relativa */
+  left: 0;
+}
+
+footer p {
+  font-size: 18px; /* Tamaño de fuente del párrafo */
+  margin: 0; /* Elimina márgenes */
+}
+
+/* === Animación de entrada del pie de página === */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); /* Aparece desde abajo */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* Llega a su posición original */
+  }
+}
+
+/* === Animación de entrada de la barra de navegación === */
+@keyframes navAppear {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px); /* Aparece desde arriba */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* Llega a su posición original */
+  }
+}
+
+/* === Animaciones adicionales para las secciones === */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  header {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  main {
+    margin: 20px;
+    padding: 20px;
+  }
+
+  footer p {
+    font-size: 18px;
+  }
+}
+
+/* Animación para que los textos aparezcan suavemente desde abajo */
+.fade-in {
+  animation: fadeInUp 1s ease-in-out;
+}
+
+/* Estilo para secciones con borde izquierdo celeste y fondo blanco semitransparente */
+.section {
+  margin-bottom: 40px;
+  border-left: 5px solid var(--celeste-fuerte); /* Borde celeste a la izquierda */
+  padding-left: 20px;
+  background: rgba(255, 255, 255, 0.5); /* Fondo semitransparente */
+  border-radius: 10px;
+  padding: 20px;
+}
+
+/* === Estilo para el perrito consejero fijo === */
+.doggy-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: transparent;
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+}
+
+.doggy {
+  width: 96px;
+  height: auto;
+  background: none;
+  border: none;
+  object-fit: contain;
+}
+
+.speech-bubble {
+  position: relative;
+  background: #fff;
+  border: 2px solid #333;
+  border-radius: 15px;
+  padding: 10px 15px;
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 10px;
+  max-width: 200px;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: scale(0.7);
+  transition: all 0.3s ease-in-out;
+  text-align: center;
+}
+
+.speech-bubble::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-top-color: #fff;
+  border-bottom: 0;
+}
+
+.speech-bubble.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fade-left {
+  animation: fadeInLeft 1s ease-out both;
+}
+
+.fade-right {
+  animation: fadeInRight 1s ease-out both;
+}
+
+@keyframes fadeInSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section {
+  opacity: 0;
+  animation: fadeInSlideUp 2s ease-out forwards;
+}
+
+/* Usamos delay para que aparezcan de a poco */
+.section:nth-of-type(1) {
+  animation-delay: 0.9s;
+}
+
+.section:nth-of-type(2) {
+  animation-delay: 1.2s;
+}
+
+.section:nth-of-type(3) {
+  animation-delay: 2.5s;
+}
+
+.section:nth-of-type(4) {
+  animation-delay: 3.5s;
+}
+
+

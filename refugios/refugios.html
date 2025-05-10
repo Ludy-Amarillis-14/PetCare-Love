@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Refugios - PetCare & Love💕🐶🐾</title> <!-- Título en pestaña del navegador -->
+  <link rel="stylesheet" href="style_refugios.css">  <!-- Enlace al archivo CSS externo -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">  <!-- Fuente Montserrat desde Google Fonts -->
+</head>
+
+<body>
+  <!-- 🔷 Encabezado principal con el nombre del sitio y barra de navegación -->
+  <header>
+    <div class="container">
+        <h1>PetCare & Love💕🐶🐾</h1> <!-- Título principal del sitio -->
+        <nav>
+            <ul class="nav-list"> <!-- Lista de navegación -->
+                <li><a href="../index/index.html">Inicio</a></li> <!-- Enlace a la página de inicio -->
+                <li><a href="../nosotros/nosotros.html">Sobre Nosotros</a></li> <!-- Enlace a "Sobre Nosotros" -->
+                <li><a href="../cuidado/cuidado.html">Cuidado Responsable</a></li> <!-- Enlace a "Cuidado Responsable" -->
+                <li><a href="../estadisticas/estadisticas.html">Estadísticas</a></li> <!-- Enlace a "Estadísticas" -->
+                <li><a href="../testimonios/testimonios.html">Testimonios</a></li> <!-- Enlace a "Testimonios" -->
+                <li><a href="../refugios/refugios.html">Refugios Locales</a></li> <!-- Enlace a "Refugios Locales" -->
+                <li><a href="../faq/faq.html">FAQ</a></li> <!-- Enlace a la sección de Preguntas Frecuentes -->
+            </ul>
+        </nav>
+    </div>
+</header> 
+
+  <!-- 🔶 Sección principal con un mensaje inspirador -->
+  <main class="info-section container">
+    <h2>Refugios</h2>
+
+    <div class="refugios-container">
+
+      <!-- Refugio 1 -->
+      <div class="refugio-card">
+        <h3>🐾 Comparte tu vida con un peludito Nueva Concepción</h3>
+        <p>Organización sin fines de lucro ubicada en Nueva Concepción, El Salvador. Rescatan, rehabilitan y buscan hogares amorosos para perros abandonados o maltratados.</p>
+        <ul>
+          <li><strong>📍 Ubicación:</strong> Nueva Concepción, Chalatenango Centro, El Salvador.</li>
+          <li><strong>📱 Facebook:</strong> <a href="https://www.facebook.com/people/Comparte-tu-vida-con-un-peludito-Nueva-Concepci%C3%B3n/100064332570687/" target="_blank">Comparte tu vida con un peludito</a></li>
+        </ul>
+      </div>
+
+      <!-- Refugio 2 -->
+      <div class="refugio-card">
+        <h3>🐶 Patitas de Esperanza Chalatenango</h3>
+        <p>Rescatan, rehabilitan y promueven la adopción responsable. También organizan rifas y recaudaciones.</p>
+        <ul>
+          <li><strong>📍 Ubicación:</strong> Chalatenango, El Salvador.</li>
+          <li><strong>📱 Facebook:</strong> <a href="https://www.facebook.com/profile.php?id=100091145911467" target="_blank">Patitas de Esperanza Chalatenango</a></li>
+          <li><strong>📱 Instagram:</strong> <a href="https://www.instagram.com/patitas_.esperanza/" target="_blank">patitas_.esperanza</a></li>
+          <li><strong>📱 TikTok:</strong> <a href="https://www.tiktok.com/@patitasesperanza?_t=8axOM9PmMwn&_r=1" target="_blank">@patitasesperanza</a></li>
+        </ul>
+      </div>
+
+      <!-- Refugio 3 -->
+      <div class="refugio-card">
+        <h3>🐕 Refugio Huellas S.O.S Chalatenango</h3>
+        <p>Ubicados en La Sierpe. Realizan rescates, educación y adopciones responsables.</p>
+        <ul>
+          <li><strong>📍 Ubicación:</strong> Barrio La Sierpe, junto a la Estación de bomberos, Chalatenango.</li>
+          <li><strong>📱 Facebook:</strong> <a href="https://www.facebook.com/refugiohuellaschalate/" target="_blank">Refugio Huellas S.O.S Chalatenango</a></li>
+          <li><strong>📱 TikTok:</strong> <a href="https://www.tiktok.com/@refuhuellaschalate" target="_blank">@refuhuellaschalate</a></li>
+        </ul>
+      </div>
+
+      <!-- Imagen motivacional -->
+      <div class="refugio-card imagen-cuadro">
+        <h3>🐾 ¡Tú también puedes adoptar!</h3>
+        <img src="../images/amor_compartido.png" alt="Adopta un peludito">
+      </div>
+
+    </div>
+  </main>  
+
+<!-- 🔸 Pie de página con derechos de autor -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 PetCare & Love💕🐶🐾 - Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+<!-- 🐾 Sección interactiva: Perrito interactivo con burbuja de texto -->
+<div class="doggy-container">
+    <div id="doggy-tip" class="speech-bubble">¡Hola humano! 🐶💬</div> <!-- Mensaje inicial del perrito -->
+    <img class="doggy" src="../images/chihuahua_png.png" alt="Perrito bonito"> <!-- Imagen del perrito -->
+</div>   
+
+<!-- 💬 Script interactivo del perrito con frases animadas -->
+  <script>
+  // Lista de frases con datos sobre los refugios, estos se muestran automáticamente cada 10 segundos
+    const dogTips = [
+      "¡Los refugios están llenos de amor esperando hogar! 🐾🏡",
+      "¡Adoptá, no compres! ❤️🐶",
+      "¡El mejor amigo que podés tener te está esperando! 🐕💫",
+      "¡En los refugios hay héroes con cuatro patas! 🦸‍♂️🐾",
+      "¡Salvá una vida, ganá un compañero eterno! 🐶👣",
+      "¡Un refugio es solo una parada temporal, hacelo hogar! 🏠🐾",
+      "¡Los perros no necesitan raza para darte amor! 🐕❤️",
+      "¡Adoptar es un acto de amor con patas! 🐾💌",
+      "¡Una visita a un refugio puede cambiarte la vida! 🔄🐶",
+      "¡Detrás de cada reja hay un corazón esperando! 🐕🚪❤️"
+    ];
+
+// Lista de reacciones cuando el usuario hace clic en el perrito
+const dogReactions = [
+  "¡Guau! Eso me gustó 🐶💖",
+  "¡Eres el mejor humano! 🥰🐾",
+  "¡Más caricias, por favor! 🐕✨",
+  "¡Wiii! Me haces feliz 😄🐶",
+  "¡Gracias por tu amor! 💓🐶"
+];
+
+// Selección de los elementos del DOM
+const bubble = document.getElementById("doggy-tip"); // Burbuja de texto
+const doggy = document.querySelector(".doggy"); // Imagen del perrito
+
+// Función para mostrar frases aleatorias del perrito
+function showDoggyTip() {
+  bubble.classList.remove("active"); // Oculta la burbuja
+
+  setTimeout(() => {
+    const randomTip = dogTips[Math.floor(Math.random() * dogTips.length)]; // Selecciona una frase aleatoria
+    bubble.textContent = randomTip; // Actualiza el contenido
+    bubble.classList.add("active"); // Muestra la burbuja
+  }, 300);
+}
+
+// Función para mostrar reacción cuando se hace clic en el perrito
+function showDoggyReaction() {
+  bubble.classList.remove("active");
+
+  setTimeout(() => {
+    const reaction = dogReactions[Math.floor(Math.random() * dogReactions.length)];
+    bubble.textContent = reaction;
+    bubble.classList.add("active");
+  }, 200);
+}
+
+// Evento que detecta clics en el perrito
+doggy.addEventListener("click", showDoggyReaction);
+
+// Mostrar la primera frase al cargar la página
+window.addEventListener("load", showDoggyTip);
+
+// Mostrar frases automáticamente cada 10 segundos
+setInterval(showDoggyTip, 10000);
+</script>
+
+</body>
+</html>

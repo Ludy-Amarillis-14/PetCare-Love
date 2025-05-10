@@ -1,0 +1,342 @@
+/* 🌐 Fuente de Google para usar Poppins y Montserrat */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;700&family=Montserrat:wght@400;500;700&display=swap');
+
+/* === Variables globales (PALETA DE COLORES) === */
+:root {
+  --celeste: #90e0ef; /* Celeste suave */
+  --celeste-fuerte: #00b4d8; /* Celeste fuerte */
+  --celeste-suave: #caf0f8; /* Celeste muy suave */
+  --azul-complementario: #0077b6; /* Azul complementario */
+  --blanco: #ffffff; /* Blanco */
+  --oscuro: #333333; /* Gris oscuro */
+  --fondo: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente */
+}
+
+/* Reseteo de márgenes, padding y box-sizing para todos los elementos */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Estilos globales para el body */
+body {
+  font-family: 'Poppins', sans-serif; /* Tipografía de letra */
+  background-image: url('../images/fondo_imagen.png'); /* Se añade la imagen como fondo */
+  background-size: cover; /* Ajuste para cubrir toda la pantalla */
+  background-repeat: no-repeat;
+  background-position: center;
+  color: var(--oscuro); /* Color de texto oscuro */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Altura mínima de la vista */
+  font-size: 1rem;
+}
+
+/* Estilos para el header */
+header {
+  background-color: var(--celeste-fuerte);
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 2px 8px var(--sombra);
+  animation: fadeIn 1.5s ease-out; /* Animación de fade in */
+}
+
+header h1 {
+  color: var(--blanco);
+  font-family: 'Poppins', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-align: center;
+  animation: fadeIn 1s ease-out; /* Animación de fade in */
+}
+
+/* Estilos para el nav */
+nav {
+  animation: navAppear 1.2s ease-out 0.8s forwards;
+  opacity: 0;
+  transform: translateY(-20px); /* Desplazamiento hacia arriba al principio */
+  position: relative;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 15px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: var(--blanco);
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px 15px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* Efecto de subrayado animado para los enlaces del nav */
+nav a::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 3px;
+  left: 0;
+  bottom: 0;
+  background-color: var(--azul-complementario);
+  transition: width 0.3s ease;
+  border-radius: 5px;
+}
+
+nav a:hover::after,
+nav a:focus::after,
+nav a:active::after {
+  width: 100%; /* El subrayado se expande al hacer hover */
+}
+
+nav a:hover {
+  color: var(--azul-complementario); /* Cambia el color del texto al hacer hover */
+}
+
+/* Estilos para el main */
+main {
+  background-color: var(--fondo);
+  padding: 40px 30px;
+  margin: 30px auto;
+  border-radius: 20px;
+  box-shadow: 0 0 20px var(--sombra);
+  max-width: 1000px;
+  width: 90%;
+  flex: 1;
+  animation: fadeIn 1s ease-out; /* Animación de fade in */
+}
+
+/* Estilos para los h2 (encabezados) */
+h2 {
+  text-align: center;
+  color: var(--celeste-fuerte);
+  font-size: 2.2rem;
+  margin-bottom: 25px;
+}
+
+/* Estilos para los h3 */
+h3 {
+  color: var(--coral);
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+
+/* Estilos comunes para los párrafos y listas */
+p, li {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 10px;
+  text-align: justify;
+}
+
+ul {
+  margin-left: 25px;
+}
+
+ul li {
+  margin-bottom: 15px;
+  animation: fadeIn 2.5s ease-out; /* Animación de fade in para los elementos de la lista */
+}
+
+/* Estilos para las imágenes */
+img {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  display: block;
+  margin: 20px auto;
+  border-radius: 12px;
+  box-shadow: 0 0 12px var(--sombra);
+  transition: transform 0.3s ease;
+}
+
+img:hover {
+  transform: scale(1.05); /* Efecto de zoom al hacer hover */
+}
+
+/* Estilos para los testimonios */
+.testimonio-card {
+  background-color: #ffffffee;
+  border-radius: 15px;
+  padding: 30px;
+  margin: 30px 0;
+  box-shadow: 0 0 15px var(--sombra);
+  animation: fadeIn 1.5s ease-in; /* Animación de fade in */
+}
+
+/* Estilos para el footer */
+footer {
+  width: 100%;
+  background-color: var(--celeste-fuerte);
+  color: var(--blanco);
+  text-align: center;
+  padding: 30px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 3s ease-out; /* Animación de fade in */
+}
+
+footer p {
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+}
+
+footer a {
+  color: var(--blanco);
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 10px;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+footer a:hover {
+  color: var(--coral); /* Cambia el color del enlace al hacer hover */
+}
+
+/* Animación de fade in */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Animación para la aparición del nav */
+@keyframes navAppear {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Media Queries */
+
+/* Estilos para pantallas más pequeñas (max-width 768px) */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  nav a {
+    padding: 8px 12px;
+  }
+
+  main {
+    padding: 30px 20px;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  .testimonio-card {
+    padding: 20px;
+  }
+}
+
+/* Estilos para pantallas muy pequeñas (max-width 480px) */
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 2rem;
+  }
+
+  footer {
+    padding: 20px 10px;
+    flex-direction: column;
+  }
+
+  img {
+    max-width: 100%;
+  }
+}
+
+/* perrito.css */
+
+/* Contenedor del perrito, en una posición fija en el lado derecho */
+.doggy-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px; /* El perrito se coloca en el lado derecho */
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: transparent; /* Fondo transparente */
+  opacity: 0; /* Empieza invisible */
+  transform: translateX(0); /* Asegura que el perrito empiece en su posición */
+  animation: fadeIn 2s forwards; /* Desvanecimiento al aparecer */
+}
+
+/* Ajuste del tamaño del perrito */
+.doggy {
+  width: 96px;
+  height: auto;
+  background: none;
+  border: none;
+  object-fit: contain;
+}
+
+/* Burbuja de texto tipo videojuego */
+.speech-bubble {
+  position: relative;
+  background: #fff;
+  border: 2px solid #333;
+  border-radius: 15px;
+  padding: 10px 15px;
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 10px; /* Se coloca arriba del perrito */
+  max-width: 200px;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+  opacity: 0; /* Empieza invisible */
+  transform: scale(0.7);
+  transition: all 0.3s ease-in-out;
+  text-align: center;
+}
+
+/* Colita de la burbuja que apunta hacia el perrito */
+.speech-bubble::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-top-color: #fff;
+  border-bottom: 0;
+}
+
+/* Activar visibilidad de la burbuja */
+.speech-bubble.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Animación de desvanecimiento */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateX(0); /* Mantener en su posición inicial */
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0); /* Mantener en su posición inicial */
+  }
+}

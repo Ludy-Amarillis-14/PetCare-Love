@@ -1,0 +1,370 @@
+/* Fuentes importadas desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;700&family=Montserrat:wght@400;500;700&display=swap');
+
+/* === Variables globales (paleta de colores) === */
+:root {
+  --celeste: #90e0ef; /* Color celeste suave */
+  --celeste-fuerte: #00b4d8; /* Color celeste fuerte */
+  --celeste-suave: #caf0f8; /* Color celeste más suave */
+  --coral: #ff6b6b; /* Color coral */
+  --blanco: #ffffff; /* Color blanco */
+  --oscuro: #333333; /* Color gris oscuro */
+  --fondo: rgba(255,255,255,0.8); /* Fondo blanco semitransparente */
+  --azul-complementario: #0077b6; /* Azul complementario */
+}
+
+/* Estilos generales para todo el sitio */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif; /* Fuente principal */
+}
+
+/* Estilos del cuerpo de la página */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-image: url(../images/fondo_imagen.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: var(--oscuro);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Estilos del encabezado */
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--celeste-fuerte);
+  padding: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1.5s ease-out; /* Animación de entrada */
+}
+
+
+/* Estilos del título principal */
+h1 {
+  color: var(--blanco);
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-align: center;
+  animation: fadeIn 1s ease-out;
+}
+
+/* === Animación agregada para títulos h2 y párrafos p === */
+h2, p {
+  animation: fadeInUp 1s ease-in-out; /* Animación de entrada desde abajo */
+}
+
+
+/* Estilos de la barra de navegación */
+nav {
+  animation: fadeDown 1.5s ease-out;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-weight: 600;
+}
+
+nav li a {
+  color: var(--blanco);
+  text-decoration: none;
+  padding: 10px 15px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* Efecto de subrayado en los enlaces al pasar el mouse */
+nav li a::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 3px;
+  left: 0;
+  bottom: 0;
+  background-color: var(--azul-complementario);
+  transition: width 0.3s ease;
+  border-radius: 5px;
+}
+
+/* Animación para la expansión del subrayado */
+nav li a:hover::after,
+nav li a:focus::after,
+nav li a:active::after {
+  width: 100%;
+}
+
+/* Efecto de cambio de color al pasar el mouse */
+nav li a:hover {
+  color: var(--azul-complementario);
+}
+
+/* Estilos del contenido principal */
+main {
+  background-color: var(--fondo);
+  padding: 40px 30px;
+  margin: 30px auto;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  max-width: 1000px;
+  width: 90%;
+  flex: 1;
+  animation: fadeIn 1s ease-out;
+}
+
+/* Estilos del título de las secciones */
+h2 {
+  text-align: center;
+  color: var(--celeste-fuerte);
+  font-size: 2rem;
+  margin-bottom: 25px;
+  font-weight: 600;
+  animation: fadeIn 2s ease-out;
+}
+
+h3 {
+  color: var(--coral);
+  margin-top: 25px;
+  margin-bottom: 10px;
+  font-weight: 600;
+  animation: fadeIn 2s ease-out;
+}
+
+/* Estilos de párrafos y listas */
+p, li {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 10px;
+  text-align: justify;
+}
+
+ul {
+  margin-left: 25px;
+}
+
+ul li {
+  margin-bottom: 15px;
+  animation: fadeIn 2.5s ease-out;
+}
+
+/* Estilos de las imágenes */
+img {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  display: block;
+  margin: 20px auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+/* Efecto de agrandamiento de las imágenes al pasar el mouse */
+img:hover {
+  transform: scale(1.05);
+}
+
+/* Estilos del pie de página */
+footer {
+  width: 100%;
+  background-color: var(--celeste-fuerte);
+  color: white;
+  text-align: center;
+  padding: 30px 0;
+  position: relative;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 3s ease-out;
+}
+
+/* Estilos del texto en el pie de página */
+footer p {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+footer .container {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Enlace en el pie de página */
+footer a {
+  color: var(--blanco);
+  text-decoration: none;
+  font-weight: 600;
+  margin-top: 10px;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+/* Efecto de cambio de color en el enlace */
+footer a:hover {
+  color: var(--celeste);
+}
+
+/* Animaciones para las transiciones */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes fadeDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Media queries para dispositivos pequeños */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  nav a {
+    padding: 8px 12px;
+  }
+
+  main {
+    padding: 30px 20px;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  .refugios-container {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonio-card {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 2rem;
+  }
+
+  footer {
+    padding: 20px 10px;
+    flex-direction: column;
+  }
+
+  img {
+    max-width: 100%;
+  }
+}
+
+/* Estilos para el perrito interactivo */
+.doggy-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px; /* El perrito se coloca en el lado derecho */
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: transparent; /* Fondo transparente */
+  opacity: 0; /* Empieza invisible */
+  transform: translateX(0); /* Asegura que el perrito empiece en su posición */
+  animation: fadeIn 2s forwards; /* Desvanecimiento al aparecer */
+}
+
+.doggy {
+  width: 96px;
+  height: auto;
+  background: none;
+  border: none;
+  object-fit: contain;
+}
+
+.speech-bubble {
+  position: relative;
+  background: #fff;
+  border: 2px solid #333;
+  border-radius: 15px;
+  padding: 10px 15px;
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 10px; /* Se coloca arriba del perrito */
+  max-width: 200px;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+  opacity: 0; /* Empieza invisible */
+  transform: scale(0.7);
+  transition: all 0.3s ease-in-out;
+  text-align: center;
+}
+
+.speech-bubble::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-top-color: #fff;
+  border-bottom: 0;
+}
+
+.speech-bubble.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* 🌟 Animación para que las secciones entren desde los lados al hacer scroll */
+
+/* Estado inicial: ocultas y desplazadas */
+.stat-card {
+  opacity: 0;
+  transition: all 0.8s ease-out;
+}
+
+/* Si la tarjeta viene desde la izquierda */
+.stat-card.fade-left {
+  transform: translateX(-100px); /* desplazamiento desde la izquierda */
+}
+
+/* Si la tarjeta viene desde la derecha */
+.stat-card.fade-right {
+  transform: translateX(100px); /* desplazamiento desde la derecha */
+}
+
+/* Cuando se vuelve visible, se aplica la animación */
+.stat-card.visible {
+  opacity: 1;
+  transform: translateX(0); /* vuelve a su posición original */
+}

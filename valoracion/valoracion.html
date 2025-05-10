@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  <!-- Hace que la página sea responsive para dispositivos móviles -->
+  <title>Valoración - PetCare & Love💕🐶🐾</title> 
+  <title>Valoración - PetCare & Love💕🐶🐾</title>   <!-- Vincula el archivo CSS externo con estilos para la página -->
+  <link rel="stylesheet" href="valoracion.css"> 
+</head>
+<body>
+
+ <!-- Cuerpo principal de la página -->
+
+  <!-- ⭐ Botón flotante con burbuja -->
+  <div id="star-container">
+    <!-- Contenedor del botón de estrella y su mensaje emergente -->
+
+    <div id="star-tooltip" class="hidden">⭐ ¡Valora nuestra página!</div>
+    <!-- Mensaje emergente que aparece al pasar el cursor -->
+
+    <div id="star-rating-btn" title="Valora esta página">⭐</div>
+    <!-- Botón flotante de estrella que abre el modal -->
+  </div>
+
+  <!-- 💬 Modal de valoración -->
+  <div id="rating-modal">
+    <!-- Contenedor del modal donde el usuario deja su valoración -->
+
+    <div class="modal-content">
+      <!-- Contenido del modal -->
+
+      <span class="close" onclick="closeModal()">×</span>
+      <!-- Botón para cerrar el modal (X), ejecuta la función closeModal() -->
+
+      <h3>¡Tu opinión nos ayuda! 🐶💬</h3>
+      <!-- Título del modal -->
+
+      <p>¿Qué te pareció esta página?</p>
+      <!-- Pregunta para el usuario -->
+
+      <input type="text" id="visitor-name" placeholder="Tu nombre (obligatorio)">
+      <!-- Campo de texto para el nombre del visitante -->
+
+      <textarea id="visitor-comment" rows="4" placeholder="Deja tu opinión (opcional)"></textarea>
+      <!-- Área de texto para comentarios opcionales -->
+
+      <div id="rating-stars" onmouseleave="resetHover()">
+        <!-- Contenedor de estrellas de puntuación; al salir del área se reinicia el efecto hover -->
+
+        <span data-value="1" onmouseover="highlightStars(1)" onclick="setRating(1)">★</span>
+        <span data-value="2" onmouseover="highlightStars(2)" onclick="setRating(2)">★</span>
+        <span data-value="3" onmouseover="highlightStars(3)" onclick="setRating(3)">★</span>
+        <span data-value="4" onmouseover="highlightStars(4)" onclick="setRating(4)">★</span>
+        <span data-value="5" onmouseover="highlightStars(5)" onclick="setRating(5)">★</span>
+        <!-- Estrellas interactivas: al pasar el mouse se iluminan, al hacer clic se selecciona la puntuación -->
+      </div>
+
+      <button onclick="submitRating()">Enviar</button>
+      <!-- Botón para enviar la valoración, llama a submitRating() -->
+
+      <div id="rating-message"></div>
+      <!-- Espacio para mostrar mensajes tras enviar la valoración -->
+
+      <!-- 📝 Historial dentro del modal -->
+      <div id="rating-history-container" style="display: block;">
+        <!-- Contenedor del historial de valoraciones -->
+
+        <h4>Última valoración</h4>
+        <!-- Título de la sección de historial -->
+
+        <ul id="latest-rating">
+          <li>No hay valoraciones aún.</li>
+        </ul>
+        <!-- Lista que mostrará la última valoración enviada -->
+
+        <button id="toggle-history">
+          <!-- Botón para mostrar u ocultar el historial anterior -->
+
+          <span id="toggle-text">Mostrar valoraciones anteriores✅</span>
+          <!-- Texto que cambia según el estado del historial -->
+
+          <span id="arrow-icon">▼</span>
+          <!-- Icono de flecha que puede rotar al expandir/colapsar -->
+        </button>        
+
+        <div id="history-wrapper" style="display: none;">
+          <ul id="history-list"></ul>
+        </div>
+        <!-- Lista que almacena todas las valoraciones anteriores -->
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 📜 Script funcional -->
+  <script src="../valoracion/valoracion.js"></script>
+  <!-- Se incluye el archivo JavaScript externo con la lógica del modal y valoración -->
+
+</body>
+</html>

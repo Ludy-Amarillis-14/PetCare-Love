@@ -1,0 +1,376 @@
+/* === Importación de fuentes desde Google Fonts === */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Poppins:wght@300;700&display=swap');
+/* Se importan las tipografías Montserrat y Poppins desde Google Fonts */
+
+/* === Variables globales (PALETA DE COLORES) === */
+:root {
+  --celeste: #90e0ef; /* Celeste suave */
+  --celeste-fuerte: #00b4d8; /* Celeste fuerte */
+  --celeste-suave: #caf0f8; /* Celeste muy suave */
+  --azul-complementario: #0077b6; /* Azul complementario */
+  --blanco: #ffffff; /* Blanco */
+  --oscuro: #333333; /* Gris oscuro */
+  --fondo: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente */
+}
+/* Se definen variables CSS para usar una paleta de colores consistente en todo el diseño */
+
+/* Reseteo de márgenes, rellenos y box-sizing para evitar inconsistencias */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* Se eliminan márgenes y paddings predeterminados, y se establece el box-sizing en border-box para todos los elementos */
+
+/* Estilos generales del cuerpo del documento */
+body {
+  font-family: 'Poppins', sans-serif; /* Tipografía de letra */
+  background-image: url(images/fondo_imagen.png); /* Imagen de fondo */
+  background-size: cover; /* Ajuste para cubrir toda la pantalla */
+  background-repeat: no-repeat;
+  background-position: 50% 20%;
+  color: var(--oscuro); /* Color de texto oscuro */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Altura mínima de la vista */
+}
+/* Se define un estilo general para el body, con fondo, tipografía, color y layout flexible */
+
+/* Estilos para el encabezado */
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--celeste-fuerte);
+  padding: 30px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1.5s ease-out;
+}
+/* El header se centra y tiene animación, fondo celeste fuerte y sombra */
+
+/* Título en el header */
+h1 {
+  font-family: 'Poppins', sans-serif;
+  color: var(--blanco);
+  font-size: 3rem;
+  margin-bottom: 10px;
+  text-align: center;
+}
+/* Estilo del título principal en el encabezado */
+
+/* Menú de navegación */
+nav {
+  animation: navAppear 1.5s ease-out forwards;
+  opacity: 0;
+  transform: translateY(0);
+  position: relative;
+}
+/* Animación del menú de navegación al aparecer */
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+/* Estilo de la lista del menú: horizontal y sin viñetas */
+
+nav li a {
+  color: var(--blanco);
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px 15px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+/* Estilo de los enlaces del menú */
+
+nav li a::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 3px;
+  left: 0;
+  bottom: 0;
+  background-color: var(--azul-complementario);
+  transition: width 0.3s ease;
+  border-radius: 5px;
+}
+/* Línea decorativa inferior en hover */
+
+nav li a:hover::after,
+nav li a:focus::after,
+nav li a:active::after {
+  width: 100%;
+}
+
+nav li a:hover {
+  color: var(--azul-complementario);
+}
+/* Efecto visual al pasar el mouse sobre los enlaces del menú */
+
+/* Estilos del contenido principal */
+main {
+  background-color: var(--fondo);
+  padding: 40px 20px;
+  margin: 0;
+  flex: 1;
+  max-width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+/* Estilos del contenedor principal del contenido */
+
+/* Títulos secundarios */
+h2 {
+  font-family: 'Montserrat', sans-serif;
+  color: var(--celeste-fuerte);
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 30px;
+  opacity: 0;
+  animation: fadeInUp 2s ease-in-out forwards;
+}
+/* Título animado que aparece con efecto de subida */
+
+/* Párrafos */
+p {
+  line-height: 1.6;
+  margin-bottom: 15px;
+  text-align: center;
+}
+/* Estilo general para los párrafos */
+
+h3 p {
+  color: var(--celeste-fuerte);
+  font-size: 1.2rem;
+  text-align: center;
+  margin-top: 10px;
+}
+/* Estilo específico para párrafos dentro de h3 (aunque no es común tener p dentro de h3) */
+
+h3.frase {
+  color: var(--coral);
+  font-size: 1.2rem;
+  text-align: center;
+  margin-top: 10px;
+}
+/* Estilo para frases especiales dentro de h3 */
+
+/* Sección de misión y visión */
+.contenedor-mision-vision {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  margin-top: 20px;
+  width: 100%;
+  margin-bottom: 40px;
+}
+/* Contenedor flexible que muestra misión y visión uno al lado del otro */
+
+/* Cuadros de misión y visión */
+.recuadro {
+  background-color: var(--celeste);
+  border: 2px solid var(--celeste-fuerte);
+  padding: 25px 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  width: 48%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.4s ease, box-shadow 0.4s ease, filter 0.4s ease;
+  opacity: 0;
+  animation: fadeInUp 1.5s ease-out forwards;
+}
+/* Estilo general para los recuadros que contienen misión o visión */
+
+.recuadro:hover {
+  transform: scale(1.07) translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  filter: brightness(1.07);
+}
+/* Efecto visual al pasar el mouse sobre un recuadro */
+
+.recuadro h4 {
+  color: var(--blanco);
+  margin-bottom: 10px;
+  font-size: 1.4rem;
+}
+
+.recuadro p {
+  color: var(--blanco);
+  font-size: 1rem;
+}
+
+.recuadro.mision {
+  background-color: #00b4d8;
+}
+
+.recuadro.vision {
+  background-color: #48cae4;
+}
+/* Colores específicos para los recuadros de misión y visión */
+
+/* Pie de página */
+footer {
+  background-color: var(--celeste-fuerte);
+  color: var(--blanco);
+  text-align: center;
+  padding: 20px;
+  width: 100%;
+  font-size: 0.9rem;
+  margin-top: 40px;
+  position: relative;
+  left: 0;
+}
+
+footer p {
+  font-size: 20px;
+}
+/* Estilos del footer o pie de página */
+
+/* Responsivo */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  header {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  main {
+    margin: 20px;
+    padding: 20px;
+  }
+
+  .contenedor-mision-vision {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  footer p {
+    font-size: 18px;
+  }
+}
+/* Estilos para pantallas pequeñas (tablets y móviles) */
+
+/* Texto de introducción */
+.intro-text {
+  font-family: 'Montserrat', sans-serif;
+  color: var(--oscuro);
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 20px;
+  opacity: 0;
+  animation: fadeInUp 2s ease-in-out forwards;
+}
+/* Texto de introducción animado */
+
+/* Animaciones */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes navAppear {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); 
+  }
+}
+/* Definiciones de animaciones CSS para transiciones suaves */
+
+/* Burbuja y mascota */
+.doggy-container {
+  position: fixed;
+  bottom: 5px;
+  right: 20px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: transparent;
+  opacity: 0;
+  transform: translateX(0);
+  animation: fadeIn 2s forwards;
+}
+/* Contenedor fijo de una mascota (imagen) en la esquina inferior derecha */
+
+/* Imagen de la mascota */
+.doggy {
+  width: 96px;
+  height: auto;
+  background: none;
+  border: none;
+  object-fit: contain;
+}
+
+
+/* Estilo de la burbuja de diálogo que acompaña a la mascota */
+.speech-bubble {
+  position: relative;
+  background: #fff;
+  border: 2px solid #333;
+  border-radius: 15px;
+  padding: 10px 15px;
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 10px;
+  max-width: 200px;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: scale(0.7);
+  transition: all 0.3s ease-in-out;
+  text-align: center;
+}
+
+/* Flecha inferior de la burbuja de diálogo */
+.speech-bubble::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-top-color: #fff;
+  border-bottom: 0;
+}
+
+/* Hace visible la burbuja cuando se activa */
+.speech-bubble.active {
+  opacity: 1;
+  transform: scale(1);
+}

@@ -1,0 +1,193 @@
+/* === Importación de fuentes desde Google Fonts === */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Poppins:wght@300;700&display=swap');
+
+/* === Reset y tipografía base === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif; /* Fuente predeterminada para todo el documento */
+}
+
+/* Estilos generales del body */
+body {
+  background-color: #0f172a; /* Color de fondo oscuro del cuerpo */
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center;     /* Centra verticalmente */
+  height: 100vh;           /* Altura total de la ventana */
+}
+
+/* Contenedor principal */
+.main-box {
+  display: flex;
+  align-items: center;
+  gap: 0; /* Sin espacio entre panel lateral y tarjeta */
+}
+
+/* Panel lateral  */
+.side-panel {
+  width: 340px; /* Ancho del panel */
+  height: 520px; /* Altura del panel */
+  background-color: #091322; /* Fondo oscuro */
+  color: white;
+  padding: 50px 25px; /* Espaciado interior */
+  border-radius: 20px 0 0 20px; /* Bordes redondeados en la izquierda */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden; /* Oculta elementos que sobresalgan */
+}
+
+.welcome-content {
+  animation: fadeIn 2s ease forwards; /* Aparece suavemente */
+}
+
+.side-panel h1 {
+  color: #00fff7; /* Color azul brillante */
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.side-panel p {
+  font-size: 15px;
+  line-height: 1.6; /* Altura entre líneas */
+}
+
+/* Línea animada */
+.animated-line {
+  position: absolute;
+  bottom: 0;
+  left: -100%;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #00fff7, transparent); /* Línea brillante */
+  animation: slideLine 3s infinite linear; /* Animación infinita que recorre de lado a lado */
+}
+
+/* Animaciones */
+@keyframes slideLine {
+  0% { left: -100%; }
+  50% { left: 100%; }
+  100% { left: -100%; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); } /* Empieza invisible y abajo */
+  to { opacity: 1; transform: translateY(0); } /* Termina visible y en posición original */
+}
+
+@keyframes formSlide {
+  from { opacity: 0; transform: translateY(50px); } /* Desplazamiento inicial */
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Contenedor con perspectiva 3D para la animación de giro */
+.container {
+  perspective: 1000px;
+}
+
+#flip {
+  display: none; /* Checkbox oculto que controla el giro de la tarjeta */
+}
+
+.card {
+  width: 420px;
+  height: 520px;
+  position: relative;
+  transform-style: preserve-3d; /* Permite efecto 3D */
+  transition: transform 1s;     /* Transición suave */
+  border-radius: 0 20px 20px 0; /* Bordes redondeados en la derecha */
+  box-shadow: 0 0 15px #00fff7, 0 0 40px #00fff7; /* Efecto de resplandor */
+}
+
+#flip:checked ~ .card {
+  transform: rotateY(180deg); /* Gira la tarjeta cuando se marca el checkbox */
+}
+
+.front, .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 40px 30px;
+  background-color: #0a0f1a; /* Fondo para ambas caras */
+  color: white;
+  border-radius: 0 20px 20px 0;
+  backface-visibility: hidden; /* Oculta la cara trasera cuando no está al frente */
+  animation: formSlide 1s ease;/* Efecto de aparición suave */
+}
+
+.front h2, .back h2 {
+  margin-bottom: 30px;
+  font-size: 28px;
+  text-align: center;
+}
+
+/* Estilos para cajas de entrada */
+.input-box {
+  position: relative;
+  margin-bottom: 20px;
+  animation: fadeIn 1s ease forwards; /* Aparición suave */
+}
+
+.input-box i {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  color: #00fff7; /* Iconos en color azul brillante */
+}
+
+.input-box input {
+  width: 100%;
+  padding: 12px 12px 12px 35px; /* Espacio para el ícono */
+  border: 1px solid #00fff7;
+  border-radius: 8px;
+  background-color: transparent;
+  color: white;
+}
+
+.input-box input::placeholder {
+  color: #bbb; /* Color de texto guía */
+}
+
+/* Botón de enviar */
+button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #00fff7, #00c0ff); /* Degradado azul */
+  color: #0a0f1a; /* Texto oscuro para contraste */
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.3s; /* Cambio suave al pasar el mouse */
+  animation: fadeIn 1.2s ease forwards;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #00c0ff, #00fff7); /* Degradado invertido al pasar el mouse */
+}
+
+/* Texto y enlaces */
+p {
+  margin-top: 15px;
+  font-size: 14px;
+  text-align: center;
+  animation: fadeIn 1.4s ease forwards;
+}
+
+label {
+  color: #00fff7; /* Azul brillante */
+  cursor: pointer; /* Manito al pasar */
+}
+
+/* Control de visibilidad de las caras */
+.front {
+  z-index: 4; /* Siempre encima por defecto */
+}
+
+.back {
+  transform: rotateY(180deg); /* Parte trasera girada inicialmente */
+}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Login y SignUp</title> <!-- Título en pestaña del navegador -->
+  <link rel="stylesheet" href="login_style.css"> <!-- Enlace al archivo CSS externo -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">   <!-- Enlace a la biblioteca de íconos Font Awesome para usar íconos como el del usuario o candado -->
+</head>
+<body>
+
+<!-- Contenedor principal de toda la estructura -->
+  <div class="main-box">
+
+    <!-- Panel lateral izquierdo con mensaje de bienvenida -->
+    <div class="side-panel">
+    <div class="welcome-content">
+      <h1>¡Bienvenido de nuevo!</h1> <!-- Título principal del panel lateral -->
+      <p>Conéctate  con nosotros para seguir explorando sobre tus mascotas 🐶💕.</p> <!-- Mensaje adicional -->
+      <div class="animated-line"></div> <!-- Línea decorativa (esta animada con CSS) -->
+    </div>
+  </div>
+
+<!-- Contenedor de los formularios -->
+  <div class="container">
+    <input type="checkbox" id="flip"> <!-- Checkbox oculto que permite cambiar entre login y registro -->
+
+    <div class="card"> <!-- Tarjeta que contiene los dos formularios -->
+
+      <!-- Parte frontal: Formulario de inicio de sesión -->
+      <div class="front">
+        <h2>Iniciar Sesión</h2>
+        <form>
+          <!-- Campo para el nombre de usuario -->
+          <div class="input-box">
+            <i class="fa fa-user"></i> <!-- Ícono de usuario -->
+            <input type="text" placeholder="Username" required> <!-- Entrada de texto obligatoria -->
+          </div>
+          <!-- Campo para la contraseña -->
+          <div class="input-box">
+            <i class="fa fa-lock"></i> <!-- Ícono de candado -->
+            <input type="password" placeholder="Password" required> <!-- Entrada de contraseña obligatoria -->
+          </div>
+          <!-- Botón para enviar el formulario -->
+          <button type="submit">Iniciar Sesión</button>
+          <!-- Enlace para cambiar al formulario de registro -->
+          <p>¿No tienes cuenta? <label for="flip">Regístrate</label></p>
+
+          <!-- Mensaje de error oculto por defecto -->
+          <p id="error-message" style="color: red; display: none;">Usuario o contraseña incorrectos. Por favor, inténtalo de nuevo.</p>
+        </form>
+      </div>
+
+      <!-- Parte trasera: Formulario de registro -->
+      <div class="back">
+        <h2>Regístrate</h2>
+        <form>
+          <!-- Campo para nombre completo -->
+          <div class="input-box">
+            <i class="fa fa-user"></i>
+            <input type="text" placeholder="Nombre completo" required>
+          </div>
+           <!-- Campo para correo electrónico -->
+          <div class="input-box">
+            <i class="fa fa-envelope"></i>
+            <input type="email" placeholder="Correo electrónico" required>
+          </div>
+          <!-- Campo para la contraseña -->
+          <div class="input-box">
+            <i class="fa fa-lock"></i>
+            <input type="password" placeholder="Contraseña" required>
+          </div>
+          <!-- Botón para registrar -->
+          <button type="submit">Registrar</button>
+          <!-- Enlace para cambiar al formulario de inicio de sesión -->
+          <p>¿Ya tienes cuenta? <label for="flip">Inicia sesión</label></p>
+        </form>
+      </div>
+
+    </div> <!-- Fin de .card -->
+  </div> <!-- Fin de .container -->
+
+</div> <!-- Fin de .main-box -->
+
+<!-- Script de JavaScript para validar el login y redireccionar -->
+<script>
+    // Escucha el evento "submit" del formulario de login (parte frontal)
+    document.querySelector('.front form').addEventListener('submit', function(e) {
+      e.preventDefault(); // Evita que el formulario se envíe de manera tradicional
+  
+      // Obtiene el valor del campo de texto (username)
+      const username = this.querySelector('input[type="text"]').value.trim();
+      // Obtiene el valor del campo de contraseña
+      const password = this.querySelector('input[type="password"]').value.trim();
+  
+      // Verificar si el usuario y la contraseña son correctos
+      if (username === 'petcare2025' && password === 'cuida123') {
+        // Si son correctas, redirige a la página principal
+        window.location.href = location.origin + "/index/index.html"; // Redirige al índice si el login es correcto
+      } else {
+        // Si las credenciales no coinciden, mostrar mensaje de error
+        document.getElementById('error-message').style.display = 'block';
+      }
+    });
+  </script>
+
+</body>
+</html>
