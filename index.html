@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inicio - PetCare & Love💕🐶🐾</title> <!-- Título en pestaña del navegador -->
+  <link rel="stylesheet" href="style_index.css">  <!-- Enlace al archivo CSS externo -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">  <!-- Fuente Montserrat desde Google Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">   <!-- Librería de íconos Font Awesome para íconos modernos -->
+</head>
+<body>
+  <!-- 🔷 Encabezado principal con el nombre del sitio y barra de navegación -->
+  <header>
+    <div class="container">
+        <h1>PetCare & Love💕🐶🐾</h1> <!-- Título principal del sitio -->
+        <nav>
+            <ul class="nav-list"> <!-- Lista de navegación -->
+                <li><a href="../index/index.html">Inicio</a></li> <!-- Enlace a la página de inicio -->
+                <li><a href="../nosotros/nosotros.html">Sobre Nosotros</a></li> <!-- Enlace a "Sobre Nosotros" -->
+                <li><a href="../cuidado/cuidado.html">Cuidado Responsable</a></li> <!-- Enlace a "Cuidado Responsable" -->
+                <li><a href="../estadisticas/estadisticas.html">Estadísticas</a></li> <!-- Enlace a "Estadísticas" -->
+                <li><a href="../testimonios/testimonios.html">Testimonios</a></li> <!-- Enlace a "Testimonios" -->
+                <li><a href="../refugios/refugios.html">Refugios Locales</a></li> <!-- Enlace a "Refugios Locales" -->
+                <li><a href="../faq/faq.html">FAQ</a></li> <!-- Enlace a la sección de Preguntas Frecuentes -->
+            </ul>
+        </nav>
+    </div>
+</header>      
+
+<!-- 🔶 Sección principal con un mensaje inspirador -->
+<main class="info-section container">    
+    <h2>Porque cada patita merece crecer rodeada de amor, cuidado y muchas caricias.</h2> <!-- Mensaje motivacional -->
+    <p>¡Únete a nosotros para marcar la diferencia!</p> <!-- Llamado a la acción -->
+</main>
+
+<!-- 🔸 Pie de página con derechos de autor -->
+<footer>
+    <div class="container">
+        <p>&copy; 2025 PetCare & Love💕🐶🐾 - Todos los derechos reservados.</p> <!-- Texto legal -->
+    </div>
+</footer>
+
+<!-- 🐾 Sección interactiva: Perrito interactivo con burbuja de texto -->
+<div class="doggy-container">
+    <div id="doggy-tip" class="speech-bubble">¡Hola humano! 🐶💬</div> <!-- Mensaje inicial del perrito -->
+    <img class="doggy" src="../images/chihuahua_png.png" alt="Perrito bonito"> <!-- Imagen del perrito -->
+</div>    
+
+<!-- 💬 Script interactivo del perrito con frases animadas -->
+<script>
+// Lista de frases de bienvenida animadas que el perrito muestra automáticamente cada 10 segundos
+const dogTips = [
+  "¡Hola, humano! 🐾 ¿Listo para hacer el mundo mejor para nosotros los perritos?",
+  "¡Guau! 🐶 Bienvenido a este rincón lleno de amor y patitas.",
+  "¡Qué alegría verte por aquí! 💙 ¡Acompáñanos a hacer la diferencia!",
+  "¡Hola! Soy tu guía peludo 🐾, ¿empezamos esta aventura?",
+  "¡Tu visita nos hace mover la colita de emoción! 🐕✨",
+  "¡Gracias por entrar! Cada clic ayuda a una vida peluda 🐶❤️",
+  "¡Guau! Me alegra verte por aquí 🐾 ¿Te quedás un ratito?",
+  "¡Bienvenido al refugio digital de esperanza y amor! 🐾💕",
+  "¡Estás a punto de conocer muchas historias con patas! 🐶📖",
+  "¡Vamos juntos a cambiar vidas, una patita a la vez! 🐾🙌"
+];
+
+// Lista de reacciones cuando el usuario hace clic en el perrito
+const dogReactions = [
+  "¡Guau! Eso me gustó 🐶💖",
+  "¡Eres el mejor humano! 🥰🐾",
+  "¡Más caricias, por favor! 🐕✨",
+  "¡Wiii! Me haces feliz 😄🐶",
+  "¡Gracias por tu amor! 💓🐶"
+];
+
+// Selección de los elementos del DOM
+const bubble = document.getElementById("doggy-tip"); // Burbuja de texto
+const doggy = document.querySelector(".doggy"); // Imagen del perrito
+
+// Función para mostrar frases aleatorias del perrito
+function showDoggyTip() {
+  bubble.classList.remove("active"); // Oculta la burbuja
+
+  setTimeout(() => {
+    const randomTip = dogTips[Math.floor(Math.random() * dogTips.length)]; // Selecciona una frase aleatoria
+    bubble.textContent = randomTip; // Actualiza el contenido
+    bubble.classList.add("active"); // Muestra la burbuja
+  }, 300);
+}
+
+// Función para mostrar reacción cuando se hace clic en el perrito
+function showDoggyReaction() {
+  bubble.classList.remove("active");
+
+  setTimeout(() => {
+    const reaction = dogReactions[Math.floor(Math.random() * dogReactions.length)];
+    bubble.textContent = reaction;
+    bubble.classList.add("active");
+  }, 200);
+}
+
+// Evento que detecta clics en el perrito
+doggy.addEventListener("click", showDoggyReaction);
+
+// Mostrar la primera frase al cargar la página
+window.addEventListener("load", showDoggyTip);
+
+// Mostrar frases automáticamente cada 10 segundos
+setInterval(showDoggyTip, 10000);
+</script>
+
+<!-- 📋 Sección externa de valoración, se inserta dinámicamente -->
+<div id="contenedor-valoracion"></div>
+<script>
+  // Se obtiene el contenido del archivo HTML de valoración y se inserta en el contenedor
+  fetch('../valoracion/valoracion.html')
+    .then(res => res.text()) // Convierte la respuesta a texto HTML
+    .then(html => {
+      document.getElementById('contenedor-valoracion').innerHTML = html; // Inserta HTML en el contenedor
+      
+      // Agrega el script que controla la funcionalidad de la valoración
+      const script = document.createElement('script');
+      script.src = '../valoracion/valoracion.js';
+      document.body.appendChild(script);
+    });
+</script>
+<link rel="stylesheet" href="../valoracion/valoracion.css"> <!-- Estilos del sistema de valoración -->
+
+<!-- 🔐 Ícono de usuario que enlaza a la página de login -->
+<a href="../login/login.html" class="user-icon" title="Iniciar sesión">
+  <i class="fas fa-user-circle"></i> <!-- Ícono de Font Awesome -->
+</a>
+
+</body>
+</html>
