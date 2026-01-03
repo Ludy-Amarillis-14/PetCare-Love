@@ -23,7 +23,7 @@
 /* Estilos generales del body */
 body {
   font-family: 'Poppins', sans-serif; /* Tipografía de letra */
-  background-image: url('../images/fondo_imagen.png'); /* Imagen de fondo */
+  background-image: url('images/fondo_imagen.png'); /* Imagen de fondo */
   background-size: cover; /* Ajuste para cubrir toda la pantalla */
   background-repeat: no-repeat;
   background-position: 50% 20%;
