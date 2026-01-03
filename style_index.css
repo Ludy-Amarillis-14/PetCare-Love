@@ -1,7 +1,7 @@
-/* === Importación de fuentes desde Google Fonts === */
+/* === Importación de fuentes === */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Poppins:wght@300;700&display=swap');
 
-/* === Variables globales (PALETA DE COLORES) === */
+/* === Variables globales === */
 :root {
   --celeste: #90e0ef;
   --celeste-fuerte: #00b4d8;
@@ -12,27 +12,27 @@
   --fondo: rgba(255, 255, 255, 0.8);
 }
 
-/* === Reset y tipografía base === */
+/* === Reset === */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
 }
 
-/* Estilos generales del body */
+/* === Body === */
 body {
   font-family: 'Poppins', sans-serif;
-  background-image: url('images/fondo_imagen.png');
+  /* RUTA CORREGIDA: Sin los ../ porque ahora estás en la raíz */
+  background-image: url('images/fondo_imagen.png'); 
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: 50% 20%;
+  background-position: center top;
+  background-attachment: fixed; /* Esto ayuda a que el fondo se vea mejor */
   color: var(--oscuro);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  /* CORRECCIÓN: Espacio al final para que el footer fijo no tape contenido */
-  padding-bottom: 80px; 
+  padding-bottom: 80px; /* Espacio para el footer */
 }
 
 /* === Encabezado === */
@@ -43,32 +43,32 @@ header {
   background-color: var(--celeste-fuerte);
   padding: 30px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  animation: fadeIn 1.5s ease-out;
+  animation: fadeInDown 1.5s ease-out; /* Usamos la animación corregida */
 }
 
-/* Título en el header */
 h1 {
   font-family: 'Poppins', sans-serif;
   color: var(--blanco);
   font-size: 3rem;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   text-align: center;
-  animation: fadeIn 1s ease-out;
 }
 
-/* === Navegación === */
+/* === Navegación (Aquí estaba el error del amontonamiento) === */
 nav {
-  animation: navAppear 1.2s ease-out 0.8s forwards;
+  width: 100%;
+  animation: fadeIn 1.2s ease-out 0.5s forwards;
   opacity: 0;
-  transform: translateY(-20px);
-  position: relative;
 }
 
 nav ul {
   list-style: none;
   display: flex;
   justify-content: center;
-  gap: 20px;
+  flex-wrap: wrap; /* Para que baje si no cabe en celular */
+  gap: 20px; /* Espacio entre los botones */
+  padding: 0;
+  margin: 0;
 }
 
 nav li a {
@@ -77,10 +77,12 @@ nav li a {
   font-weight: bold;
   padding: 10px 15px;
   position: relative;
+  font-family: 'Montserrat', sans-serif;
   transition: color 0.3s ease;
+  display: inline-block; /* Importante para que respete el padding */
 }
 
-/* === Subrayado animado al pasar el mouse === */
+/* Subrayado animado */
 nav li a::after {
   content: '';
   position: absolute;
@@ -93,9 +95,7 @@ nav li a::after {
   border-radius: 5px;
 }
 
-nav li a:hover::after,
-nav li a:focus::after,
-nav li a:active::after {
+nav li a:hover::after {
   width: 100%;
 }
 
@@ -109,9 +109,9 @@ main {
   padding: 60px 30px;
   margin: 40px auto;
   max-width: 1000px;
+  width: 90%; /* Para que no se pegue a los bordes en celular */
   border-radius: 15px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-  /* CORRECCIÓN: Usamos la animación corregida */
   animation: fadeIn 1.5s ease-out;
 }
 
@@ -121,7 +121,6 @@ h2 {
   font-size: 35px;
   text-align: center;
   margin-bottom: 20px;
-  animation: fadeIn 1s ease-out;
 }
 
 p {
@@ -129,7 +128,6 @@ p {
   line-height: 1.8;
   font-size: 18px;
   margin-bottom: 20px;
-  animation: fadeIn 1.2s ease-out;
 }
 
 /* === Pie de página === */
@@ -137,171 +135,84 @@ footer {
   background-color: var(--celeste-fuerte);
   color: var(--blanco);
   text-align: center;
-  padding: 20px;
-  font-size: 0.9rem;
+  padding: 15px;
   position: fixed;
   bottom: 0;
-  width: 100%;
-  opacity: 0;
-  /* CORRECCIÓN: Aumentamos z-index para que esté sobre el fondo pero bajo el perro */
-  z-index: 100;
-  animation: fadeIn 1.5s ease-out 1s forwards;
-}
-
-footer p {
-  font-size: 20px;
-}
-
-/* === Animaciones === */
-
-/* CORRECCIÓN: Animación para elementos que suben (fade in up) */
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* CORRECCIÓN: Nueva animación para elementos que bajan (fade in down) */
-@keyframes fadeInDown {
-  0% {
-    opacity: 0;
-    transform: translateY(-20px); 
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0); 
-  }
-}
-
-@keyframes navAppear {
-  0% {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* === Estilos del perrito animado === */
-.doggy-container {
-  position: fixed;
-  bottom: 20px; /* Ajustado para que no choque con el footer si es alto */
-  right: 20px;
-  z-index: 9999;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: transparent;
-  opacity: 0;
-  /* CORRECCIÓN: Eliminado translateX innecesario */
-  animation: fadeIn 2s forwards;
-}
-
-.doggy {
-  width: 96px;
-  height: auto;
-  object-fit: contain;
-  background: none;
-  border: none;
-}
-
-/* Burbuja de diálogo tipo videojuego */
-.speech-bubble {
-  position: relative;
-  background: #fff;
-  border: 2px solid #333;
-  border-radius: 15px;
-  padding: 10px 15px;
-  font-size: 14px;
-  color: #333;
-  margin-bottom: 10px;
-  max-width: 200px;
-  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
-  opacity: 0;
-  transform: scale(0.7);
-  transition: all 0.3s ease-in-out;
-  text-align: center;
-}
-
-.speech-bubble::after {
-  content: "";
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  border: 10px solid transparent;
-  border-top-color: #fff;
-  border-bottom: 0;
-}
-
-/* Visibilidad activa para la burbuja */
-.speech-bubble.active {
-  opacity: 1;
-  transform: scale(1);
-}
-
-/* Estilo del icono para el Login */
-.user-icon {
-  position: fixed;
-  top: 0;
   left: 0;
-  padding: 15px;
-  font-size: 48px;
-  color: #f0f0f0;
-  z-index: 9999;
-  text-decoration: none;
-  transition: transform 0.2s, color 0.2s;
-  opacity: 0;
-  transform: translateY(-20px);
-  /* CORRECCIÓN: Usamos la nueva animación 'fadeInDown' para evitar conflicto */
-  animation: fadeInDown 1.5s ease-out forwards;
+  width: 100%;
+  z-index: 100;
+  font-size: 16px;
 }
 
-.user-icon:hover {
-  color: #0288d1;
-  transform: scale(1.15);
+/* === ANIMACIONES CORREGIDAS === */
+
+/* Aparecer desde abajo */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* === Responsive === */
+/* Aparecer desde arriba (para el header) */
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* === Responsive (Celulares) === */
 @media (max-width: 768px) {
+  h1 { font-size: 2rem; }
+  
   nav ul {
     flex-direction: column;
     align-items: center;
     gap: 10px;
   }
+  
+  main { margin-top: 20px; padding: 20px; }
+  
+  body { padding-bottom: 100px; }
+}
 
-  header {
-    padding: 15px;
-    /* Espacio extra arriba para que el icono de login no tape el titulo */
-    padding-top: 50px; 
-  }
+/* === Estilos del perrito y login === */
+.doggy-container {
+  position: fixed;
+  bottom: 60px; /* Subido para no tapar footer */
+  right: 10px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeIn 2s forwards;
+}
 
-  h1 {
-    font-size: 2.5rem;
-  }
+.doggy {
+  width: 80px;
+  height: auto;
+}
 
-  main {
-    margin: 20px;
-    padding: 20px;
-    /* Ajuste de margen inferior para móvil */
-    margin-bottom: 100px; 
-  }
+.speech-bubble {
+  background: #fff;
+  border: 2px solid #333;
+  border-radius: 10px;
+  padding: 8px;
+  font-size: 12px;
+  color: #333;
+  margin-bottom: 5px;
+  text-align: center;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
 
-  footer p {
-    font-size: 16px; /* Letra un poco más pequeña en móvil */
-  }
+.user-icon {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  font-size: 40px;
+  color: #f0f0f0;
+  z-index: 2000;
+  transition: transform 0.2s;
+}
 
-  /* CORRECCIÓN: Ajustar el perro en móvil para que no moleste */
-  .doggy-container {
-      right: 10px;
-      bottom: 70px; /* Subirlo para que no tape el footer */
-      transform: scale(0.8); /* Hacerlo un poco más pequeño */
-  }
+.user-icon:hover {
+  transform: scale(1.1);
+  color: #0288d1;
 }
