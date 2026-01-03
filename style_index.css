@@ -3,13 +3,13 @@
 
 /* === Variables globales (PALETA DE COLORES) === */
 :root {
-  --celeste: #90e0ef; /* Celeste suave */
-  --celeste-fuerte: #00b4d8; /* Celeste fuerte */
-  --celeste-suave: #caf0f8; /* Celeste muy suave */
-  --azul-complementario: #0077b6; /* Azul complementario */
-  --blanco: #ffffff; /* Blanco */
-  --oscuro: #333333; /* Gris oscuro */
-  --fondo: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente */
+  --celeste: #90e0ef;
+  --celeste-fuerte: #00b4d8;
+  --celeste-suave: #caf0f8;
+  --azul-complementario: #0077b6;
+  --blanco: #ffffff;
+  --oscuro: #333333;
+  --fondo: rgba(255, 255, 255, 0.8);
 }
 
 /* === Reset y tipografía base === */
@@ -22,15 +22,17 @@
 
 /* Estilos generales del body */
 body {
-  font-family: 'Poppins', sans-serif; /* Tipografía de letra */
-  background-image: url('images/fondo_imagen.png'); /* Imagen de fondo */
-  background-size: cover; /* Ajuste para cubrir toda la pantalla */
+  font-family: 'Poppins', sans-serif;
+  background-image: url('images/fondo_imagen.png');
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: 50% 20%;
-  color: var(--oscuro); /* Color de texto oscuro */
-  min-height: 100vh; /* Altura mínima de la vista */
+  color: var(--oscuro);
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  /* CORRECCIÓN: Espacio al final para que el footer fijo no tape contenido */
+  padding-bottom: 80px; 
 }
 
 /* === Encabezado === */
@@ -109,6 +111,7 @@ main {
   max-width: 1000px;
   border-radius: 15px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  /* CORRECCIÓN: Usamos la animación corregida */
   animation: fadeIn 1.5s ease-out;
 }
 
@@ -140,6 +143,8 @@ footer {
   bottom: 0;
   width: 100%;
   opacity: 0;
+  /* CORRECCIÓN: Aumentamos z-index para que esté sobre el fondo pero bajo el perro */
+  z-index: 100;
   animation: fadeIn 1.5s ease-out 1s forwards;
 }
 
@@ -148,6 +153,8 @@ footer p {
 }
 
 /* === Animaciones === */
+
+/* CORRECCIÓN: Animación para elementos que suben (fade in up) */
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -156,6 +163,18 @@ footer p {
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* CORRECCIÓN: Nueva animación para elementos que bajan (fade in down) */
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px); 
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); 
   }
 }
 
@@ -170,36 +189,10 @@ footer p {
   }
 }
 
-/* === Responsive === */
-@media (max-width: 768px) {
-  nav ul {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
-
-  header {
-    padding: 15px;
-  }
-
-  h1 {
-    font-size: 2.5rem;
-  }
-
-  main {
-    margin: 20px;
-    padding: 20px;
-  }
-
-  footer p {
-    font-size: 18px;
-  }
-}
-
 /* === Estilos del perrito animado === */
 .doggy-container {
   position: fixed;
-  bottom: 20px;
+  bottom: 20px; /* Ajustado para que no choque con el footer si es alto */
   right: 20px;
   z-index: 9999;
   display: flex;
@@ -207,7 +200,7 @@ footer p {
   align-items: center;
   background: transparent;
   opacity: 0;
-  transform: translateX(0);
+  /* CORRECCIÓN: Eliminado translateX innecesario */
   animation: fadeIn 2s forwards;
 }
 
@@ -261,28 +254,54 @@ footer p {
   left: 0;
   padding: 15px;
   font-size: 48px;
-  color: #f0f0f0; /* Blanco suave */
+  color: #f0f0f0;
   z-index: 9999;
   text-decoration: none;
   transition: transform 0.2s, color 0.2s;
-  opacity: 0; /* Inicialmente invisible */
-  transform: translateY(-20px); /* Inicialmente desplazado hacia arriba */
-  animation: fadeIn 1.5s ease-out forwards; /* Animación de entrada */
+  opacity: 0;
+  transform: translateY(-20px);
+  /* CORRECCIÓN: Usamos la nueva animación 'fadeInDown' para evitar conflicto */
+  animation: fadeInDown 1.5s ease-out forwards;
 }
 
 .user-icon:hover {
-  color: #0288d1; /* Celeste oscuro al pasar el mouse */
+  color: #0288d1;
   transform: scale(1.15);
 }
 
-/* Animación fadeIn (de entrada) */
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(-20px); /* Desplazado hacia arriba */
+/* === Responsive === */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
   }
-  100% {
-    opacity: 1;
-    transform: translateY(0); /* Regresa a su posición original */
+
+  header {
+    padding: 15px;
+    /* Espacio extra arriba para que el icono de login no tape el titulo */
+    padding-top: 50px; 
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  main {
+    margin: 20px;
+    padding: 20px;
+    /* Ajuste de margen inferior para móvil */
+    margin-bottom: 100px; 
+  }
+
+  footer p {
+    font-size: 16px; /* Letra un poco más pequeña en móvil */
+  }
+
+  /* CORRECCIÓN: Ajustar el perro en móvil para que no moleste */
+  .doggy-container {
+      right: 10px;
+      bottom: 70px; /* Subirlo para que no tape el footer */
+      transform: scale(0.8); /* Hacerlo un poco más pequeño */
   }
 }
